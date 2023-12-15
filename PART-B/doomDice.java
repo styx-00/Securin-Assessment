@@ -37,16 +37,14 @@ class doomDice {
         System.out.println(Arrays.toString(dieB));
         return true;
     }
-    static boolean generate(int []gen,int[] pos,int i){
-        if(i<0){
+    static boolean generate(int []gen,int[] possibleValues,int i){
+        if(i<0)
             return false;
-        }
         else{
-            for(int k=0;k<pos.length;k++){
-                gen[i]=pos[k];
-                if(generate(gen,pos,i-1)){
+            for(int k=0;k<possibleValues.length;k++){
+                gen[i]=possibleValues[k];
+                if(generate(gen,possibleValues,i-1))
                     return true;
-                }
                 int temp[] = new int[6];
                 temp[0]=1;temp[1]=gen[0];temp[2]=gen[1];temp[3]=gen[2];temp[4]=gen[3];temp[5]=4;
                 if(check(temp)){
